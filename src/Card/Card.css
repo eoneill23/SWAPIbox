@@ -28,8 +28,8 @@
   flex-direction: column;
 }
 
-p {
-  margin: 10px 10px 10px 10px;
+.stats p {
+  margin: 0px 0px 25% 0px;
 }
 
 button {

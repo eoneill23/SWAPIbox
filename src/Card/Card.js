@@ -9,15 +9,15 @@ const Card = ({ name, homeworld, species, population, terrain, climate, resident
         <button>Favorite</button>
       </header>
       <div className='stats'>
-        <p>{homeworld || null}</p>
-        <p>{species || null}</p>
-        <p>{population || null}</p>
-        <p>{terrain || null}</p>
-        <p>{climate || null}</p>
-        <p>{residents || null}</p>
-        <p>{model || null}</p>
-        <p>{vehicleClass || null}</p>
-        <p>{numberOfPassengers || null}</p>
+        {homeworld && <p>{homeworld}</p>}
+        {species && <p>{species}</p>}
+        {population && <p>{population}</p>}
+        {terrain && <p>{terrain}</p>}
+        {climate && <p>{climate}</p>}
+        {residents && <p>{residents}</p>}
+        {model &&<p>{model}</p>}
+        {vehicleClass && <p>{vehicleClass}</p>}
+        {numberOfPassengers &&<p>{numberOfPassengers}</p>}
       </div>
     </section>
   )
