@@ -10,15 +10,12 @@ const Cards = ({data}) => {
     return <Card key={name + Date.now()} name={name} homeworld={homeworld} species={species} population={population} terrain={terrain} climate={climate} residents={residents} model={model} vehicleClass={vehicleClass} numberOfPassengers={numberOfPassengers}/>
   })
 
-
-
   return (
     <div className='Cards'>
-      <section>{cardsList}</section>
-      {/* <section>{planetList}</section>
-      <section>{vehicleList}</section> */}
+      {cardsList}
     </div>
   )
+
 }
 
 export default Cards;
