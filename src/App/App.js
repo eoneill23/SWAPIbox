@@ -1,7 +1,8 @@
 import React, { Component }from 'react';
 import './App.css';
 import Cards from '../Cards/Cards';
-// import Fetcher from '../Fetcher/Fetcher';
+import Crawler from '../Crawler/Crawler';
+
 
 class App extends Component {
   constructor() {
@@ -96,6 +97,7 @@ class App extends Component {
         residents: nameArray
       }
     });
+    console.log('planets', planetsArray[0].residents.length)
     return planetsArray
   };
 
@@ -112,9 +114,10 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main className='App'>
         {this.state.isLoading && <p>Hold your horses</p>}
         {console.log('STATE', this.state)}
+        <Crawler openingText={this.state.crawl} />
         <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/>
       </main>
     )

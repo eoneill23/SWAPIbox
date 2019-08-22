@@ -13,15 +13,16 @@ const Cards = ({ people, planets, vehicles, films }) => {
   })
 
   let vehicleList = vehicles.map(vehicle => {
-    return <Card key={vehicle.name + Date.now()} name={vehicle.name} class={vehicle.vehicle_class} numberOfPassengers={vehicle.numberOfPassengers} />
+    console.log('in vehicle', vehicle)
+    return <Card key={vehicle.name + Date.now()} name={vehicle.name} model= {vehicle.model} vehicleClass={vehicle.class} numberOfPassengers={vehicle.numberOfPassengers} />
   })
 
   return (
-    <>
+    <div className='Cards'>
       <section>{peopleList}</section>
       <section>{planetList}</section>
       <section>{vehicleList}</section>
-    </>
+    </div>
   )
 }
 
