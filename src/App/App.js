@@ -1,5 +1,7 @@
 import React, { Component }from 'react';
 import './App.css';
+import { Route, Navlink } from 'react-router-dom';
+import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import Crawler from '../Crawler/Crawler';
 
@@ -21,7 +23,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.fetchPeople(data.results))
       .then(data => this.fetchSpecies(data))
-      .then(people => this.setState({ people: people, isLoading: false }))
+      .then(people => this.setState({ people: people}))
       .catch(error => console.log(error));
       setTimeout(() => {
         console.log('state', this.state)
@@ -30,13 +32,13 @@ class App extends Component {
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
       .then(data => this.fetchResidents(data.results))
-      .then(planets => this.setState({ planets: planets, isLoading: false  }))
+      .then(planets => this.setState({ planets: planets}))
       .catch(error => console.log(error));
 
     fetch('https://swapi.co/api/vehicles/')
       .then(response => response.json())
       .then(data => this.fetchVehicles(data.results))
-      .then(vehicles => this.setState({ vehicles: vehicles, isLoading: false }))
+      .then(vehicles => this.setState({ vehicles: vehicles}))
       .catch(error => console.log(error))
 
     this.fetchFilm();
@@ -117,8 +119,13 @@ class App extends Component {
       <main className='App'>
         {this.state.isLoading && <p>Hold your horses</p>}
         {console.log('STATE', this.state)}
-        <Crawler openingText={this.state.crawl} />
-        <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/>
+        {/* <Crawler openingText={this.state.crawl} />
+        <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/> */}
+        <Header />
+        <Route path='/' render ={ () => <Crawler openingText = {this.state.crawl} /> } />
+        <Route path='/people' render={ () => <Cards data={this.state.people}/>} />
+        <Route path='/planets' render={ () => <Cards data={this.state.planets}/>} />
+        <Route path='/vehicles' render={ () => <Cards data={this.state.vehicles}/>} />
       </main>
     )
   }
