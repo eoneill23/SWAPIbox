@@ -1,8 +1,24 @@
 .Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 300px;
   background-color: #000A11;
 }
 
 .nav {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+.deathstar {
+  fill: red;
 }
