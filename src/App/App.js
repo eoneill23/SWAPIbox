@@ -122,7 +122,7 @@ class App extends Component {
         {/* <Crawler openingText={this.state.crawl} />
         <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/> */}
         <Header />
-        <Route path='/' render ={ () => <Crawler openingText = {this.state.crawl} /> } />
+        <Route exact path='/' render ={ () => <Crawler openingText = {this.state.crawl} /> } />
         <Route path='/people' render={ () => <Cards data={this.state.people}/>} />
         <Route path='/planets' render={ () => <Cards data={this.state.planets}/>} />
         <Route path='/vehicles' render={ () => <Cards data={this.state.vehicles}/>} />
