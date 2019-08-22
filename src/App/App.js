@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 import './App.css';
+import Cards from '../Cards/Cards';
 // import Fetcher from '../Fetcher/Fetcher';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
       vehicles: [],
       people: [],
       planets: [],
-      films: []
+      crawl: '',
+      isLoading: true
     }
   }
 
@@ -18,7 +20,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.fetchPeople(data.results))
       .then(data => this.fetchSpecies(data))
-      .then(people => this.setState({people: people}))
+      .then(people => this.setState({ people: people, isLoading: false }))
       .catch(error => console.log(error));
       setTimeout(() => {
         console.log('state', this.state)
@@ -26,16 +28,25 @@ class App extends Component {
 
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
-      // .then(data => console.log(data.results));
-      // .then(data => data.results.map(datum => ({
-      //   name: datum.name,
-      //   terrain: datum.terrain,
-      //   population: datum.population,
-      //   climate: datum.climate,
-      //   residents: datum.residents
-      // })))
       .then(data => this.fetchResidents(data.results))
-      .then(data => console.log('after function', data))
+      .then(planets => this.setState({ planets: planets, isLoading: false  }))
+      .catch(error => console.log(error));
+
+    fetch('https://swapi.co/api/vehicles/')
+      .then(response => response.json())
+      .then(data => this.fetchVehicles(data.results))
+      .then(vehicles => this.setState({ vehicles: vehicles, isLoading: false }))
+      .catch(error => console.log(error))
+
+    this.fetchFilm();
+  }
+
+  fetchFilm = () => {
+    let filmNumber = Math.floor(Math.random() * (7 -1) + 1)
+    fetch(`https://swapi.co/api/films/${filmNumber}`)
+      .then(response => response.json())
+      .then(film => film.opening_crawl)
+      .then(crawl => this.setState({ crawl: crawl, isLoading: false }))
       .catch(error => console.log(error))
   }
 
@@ -69,7 +80,6 @@ class App extends Component {
   };
 
   fetchResidents = (planets) => {
-    
     const planetsArray = planets.map(planet => {
       let nameArray = [];
       planet.residents.map(resident => {
@@ -89,29 +99,25 @@ class App extends Component {
     return planetsArray
   };
 
+  fetchVehicles = (vehicles) => {
+    return vehicles.map(vehicle => {
+      return {
+        name: vehicle.name,
+        model: vehicle.model,
+        class: vehicle.vehicle_class,
+        numberOfPassengers: vehicle.passengers
+      }
+    });
+  };
+
   render() {
-    if (this.state.people.length) {
-    let peopleList = this.state.people.map(person => {
-      return (<>
-        <p>{person.name}</p>
-        <p>{person.homeworld}</p>
-        <p>{person.species}</p>
-        <p>{person.language}</p>
-        <p>{person.population}</p>
-      </>)}
-      );
-      return (
-        <main>
-          {peopleList}
-        </main>
-      );
-    } else {
     return (
       <main>
-        <p>Blah</p>
+        {this.state.isLoading && <p>Hold your horses</p>}
+        {console.log('STATE', this.state)}
+        <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/>
       </main>
-      )
-    }
+    )
   }
 }
 
