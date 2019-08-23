@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css'
 
 const Card = ({ name, homeworld, species, population, terrain, climate, residents, model, vehicleClass, numberOfPassengers }) => {
+ 
   return (
     <section className='Card'>
       <header className='Card-header'>

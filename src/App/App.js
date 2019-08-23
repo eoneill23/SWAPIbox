@@ -108,7 +108,7 @@ class App extends Component {
       return {
         name: vehicle.name,
         model: vehicle.model,
-        class: vehicle.vehicle_class,
+        vehicleClass: vehicle.vehicle_class,
         numberOfPassengers: vehicle.passengers
       }
     });
