@@ -48,7 +48,7 @@ class App extends Component {
     let filmNumber = Math.floor(Math.random() * (7 -1) + 1)
     fetch(`https://swapi.co/api/films/${filmNumber}`)
       .then(response => response.json())
-      .then(film => film.opening_crawl)
+      .then(film => ({title: film.title, crawl: film.opening_crawl, release: film.release_date}))
       .then(crawl => this.setState({ crawl: crawl, isLoading: false }))
       .catch(error => console.log(error))
   }
@@ -118,11 +118,8 @@ class App extends Component {
     return (
       <main className='App'>
         {this.state.isLoading && <p>Hold your horses</p>}
-        {console.log('STATE', this.state)}
-        {/* <Crawler openingText={this.state.crawl} />
-        <Cards people={this.state.people} planets={this.state.planets} vehicles={this.state.vehicles}/> */}
         <Header />
-        <Route exact path='/' render ={ () => <Crawler openingText = {this.state.crawl} /> } />
+        <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
         <Route path='/people' render={ () => <Cards data={this.state.people}/>} />
         <Route path='/planets' render={ () => <Cards data={this.state.planets}/>} />
         <Route path='/vehicles' render={ () => <Cards data={this.state.vehicles}/>} />

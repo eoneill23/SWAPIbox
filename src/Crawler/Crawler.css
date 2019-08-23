@@ -15,11 +15,16 @@
   text-align: justify;
 }
 
+.subtext {
+  text-align: center;
+}
+
 .crawl-text {
   position: relative;
   top: -100px;
   transform-origin: 50% 100%;
   animation: crawl 45s linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes crawl {

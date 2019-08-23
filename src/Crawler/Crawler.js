@@ -1,12 +1,14 @@
 import React from 'react';
 import './Crawler.css'
 
-const Crawler = ({openingText}) => {
-  
+const Crawler = ({data}) => {
+  const {crawl, title, release} = data;
   return(
     <section className='Crawler'>
       <div className='crawl-text'>
-        <p>{openingText}</p>
+        <p>{crawl}</p>
+        <p className='subtext'>{title}</p>
+        <p className='subtext'>{release}</p>
       </div>
     </section>
   )
