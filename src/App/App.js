@@ -13,7 +13,7 @@ class App extends Component {
       vehicles: [],
       people: [],
       planets: [],
-      crawl: '',
+      crawl: {},
       favorites: [],
       isLoading: true
     }
@@ -129,22 +129,21 @@ class App extends Component {
     if (foundCard.favorite === 'true' && !this.state.favorites.includes(foundCard)) {
       this.setState({favorites : [...this.state.favorites, foundCard]}, () => {console.log('after favoriteCard state', this.state)});
     } else {
-      
       const filteredFavorites = this.state.favorites.filter(card => card.favorite === 'true');
       this.setState({ favorites: filteredFavorites }, () => {console.log('after trying to remove card from favorites', this.state)});
     }
-    // console.log('after favoriteCard state', this.state)
   }
 
   render() {
     return (
       <main className='App'>
         {this.state.isLoading && <p>Hold your horses</p>}
-        <Header />
+        <Header data={this.state.favorites}/>
         <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
         <Route path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard}/>} />
         <Route path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard}/>} />
         <Route path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard}/>} />
+        <Route path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard}/>} />
       </main>
     )
   }
