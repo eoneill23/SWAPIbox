@@ -34,5 +34,9 @@ describe('Header', () => {
   it('should link to the favorites route when the favorites navLink is clicked', () => {
     expect(wrapper.find(NavLink).at(4).props().to).toBe('/favorites');
   });
+
+  it('should match the snapshot with all data passed in correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
 });
 
