@@ -27,6 +27,10 @@ describe('App', () => {
     expect(wrapper.state('people')).toEqual(expected);
     expect(wrapper.state('favorites')).toEqual(expected);
   });
+
+  it('should match the snapshot with all data passed in correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
   
   describe('Route', () => {
 
@@ -49,7 +53,36 @@ describe('App', () => {
       );
      
       expect(wrapper.find(Cards)).toHaveLength(1);
-    })
+    });
 
+    it('should route to the planets page when the planets link is clicked', () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={['/planets']}>
+          <App />
+        </MemoryRouter>
+      );
+
+      expect(wrapper.find(Cards)).toHaveLength(1);
+    });
+
+    it('should route to the vehicles page when the vehicles link is clicked', () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={['/vehicles']}>
+          <App />
+        </MemoryRouter>
+      );
+
+      expect(wrapper.find(Cards)).toHaveLength(1);
+    });
+
+    it('should route to the favorites page when the favorites link is clicked', () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={['/favorites']}>
+          <App />
+        </MemoryRouter>
+      );
+
+      expect(wrapper.find(Cards)).toHaveLength(1);
+    });
   });
 });
