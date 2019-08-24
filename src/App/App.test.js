@@ -10,11 +10,24 @@ describe('App', () => {
 
   beforeEach(() => {
     wrapper = shallow(<App />)
-  })
+  });
+
   it('should render without crashing', () => {
     expect(wrapper.length).toEqual(1)
   });
 
+  it('should update state to show favorited cards when favoriteCard is invoked', () => {
+    const mockPerson = { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'false' };
+
+    const expected = [{ name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'true' }];
+
+    wrapper.setState({ people: [mockPerson] });
+    wrapper.instance().favoriteCard('David', 'people', 'true');
+
+    expect(wrapper.state('people')).toEqual(expected);
+    expect(wrapper.state('favorites')).toEqual(expected);
+  });
+  
   describe('Route', () => {
 
     it('should route to the homepage with the Crawler displayed by default', () => {

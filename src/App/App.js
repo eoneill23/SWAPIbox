@@ -122,15 +122,13 @@ class App extends Component {
   };
 
   favoriteCard = (name, type, favorite) => {
-    console.log(name, type, favorite)
     const foundCard = this.state[type].find(card => card.name === name);
     foundCard.favorite = foundCard.favorite === 'false' ? 'true' : 'false';
-    console.log('foundCard', foundCard)
     if (foundCard.favorite === 'true' && !this.state.favorites.includes(foundCard)) {
-      this.setState({favorites : [...this.state.favorites, foundCard]}, () => {console.log('after favoriteCard state', this.state)});
+      this.setState({favorites : [...this.state.favorites, foundCard]});
     } else {
       const filteredFavorites = this.state.favorites.filter(card => card.favorite === 'true');
-      this.setState({ favorites: filteredFavorites }, () => {console.log('after trying to remove card from favorites', this.state)});
+      this.setState({ favorites: filteredFavorites });
     }
   }
 
