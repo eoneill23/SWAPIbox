@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match the snapshot with all data passed in correctly 1`] = `
+<header
+  className="Header"
+>
+  <h1>
+    SWAPIbox
+  </h1>
+  <div
+    className="Header-links"
+  >
+    <NavLink
+      className="nav"
+      to="/"
+    >
+      <img
+        src="non-chunky-hut.svg"
+      />
+      Home
+    </NavLink>
+    <NavLink
+      className="nav"
+      to="/people"
+    >
+      <img
+        src="boba-fett.svg"
+      />
+      People
+    </NavLink>
+    <NavLink
+      className="nav"
+      to="/planets"
+    >
+      <img
+        className="deathstar"
+        src="chunky-death-star.svg"
+      />
+      Planets
+    </NavLink>
+    <NavLink
+      className="nav"
+      to="/vehicles"
+    >
+      <img
+        src="x-wing.svg"
+      />
+      Vehicles
+    </NavLink>
+    <NavLink
+      className="nav"
+      to="/favorites"
+    >
+      <img
+        src="non-chunky-favorite-lightsaber.svg"
+      />
+      Favorites
+      1
+    </NavLink>
+  </div>
+</header>
+`;
