@@ -14,6 +14,7 @@ class App extends Component {
       people: [],
       planets: [],
       crawl: '',
+      favorites: [],
       isLoading: true
     }
   }
@@ -58,6 +59,8 @@ class App extends Component {
       return fetch(person.homeworld)
         .then(response => response.json())
         .then(data => ({
+          favorite: 'false',
+          type: 'people',
           homeworld: data.name,
           population: data.population,
           name: person.name,
@@ -92,6 +95,8 @@ class App extends Component {
         .catch(error => console.log(error))
       });
       return {
+        favorite: 'false',
+        type: 'planets',
         name: planet.name,
         terrain: planet.terrain,
         population: planet.population,
@@ -106,6 +111,8 @@ class App extends Component {
   fetchVehicles = (vehicles) => {
     return vehicles.map(vehicle => {
       return {
+        favorite: 'false',
+        type: 'vehicles',
         name: vehicle.name,
         model: vehicle.model,
         vehicleClass: vehicle.vehicle_class,
@@ -114,15 +121,30 @@ class App extends Component {
     });
   };
 
+  favoriteCard = (name, type, favorite) => {
+    console.log(name, type, favorite)
+    const foundCard = this.state[type].find(card => card.name === name);
+    foundCard.favorite = foundCard.favorite === 'false' ? 'true' : 'false';
+    console.log('foundCard', foundCard)
+    if (foundCard.favorite === 'true' && !this.state.favorites.includes(foundCard)) {
+      this.setState({favorites : [...this.state.favorites, foundCard]}, () => {console.log('after favoriteCard state', this.state)});
+    } else {
+      
+      const filteredFavorites = this.state.favorites.filter(card => card.favorite === 'true');
+      this.setState({ favorites: filteredFavorites }, () => {console.log('after trying to remove card from favorites', this.state)});
+    }
+    // console.log('after favoriteCard state', this.state)
+  }
+
   render() {
     return (
       <main className='App'>
         {this.state.isLoading && <p>Hold your horses</p>}
         <Header />
         <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
-        <Route path='/people' render={ () => <Cards data={this.state.people}/>} />
-        <Route path='/planets' render={ () => <Cards data={this.state.planets}/>} />
-        <Route path='/vehicles' render={ () => <Cards data={this.state.vehicles}/>} />
+        <Route path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard}/>} />
+        <Route path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard}/>} />
+        <Route path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard}/>} />
       </main>
     )
   }
