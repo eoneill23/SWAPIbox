@@ -22,15 +22,15 @@ const Card = ({ name, homeworld, species, population, terrain, climate, resident
         </label>
       </header>
       <div className='stats'>
-        {homeworld && <p>{homeworld}</p>}
-        {species && <p>{species}</p>}
-        {population && <p>{population}</p>}
-        {terrain && <p>{terrain}</p>}
-        {climate && <p>{climate}</p>}
-        {residents && <p>{residents}</p>}
-        {model &&<p>{model}</p>}
-        {vehicleClass && <p>{vehicleClass}</p>}
-        {numberOfPassengers &&<p>{numberOfPassengers}</p>}
+        {homeworld && <p>Homeworld: {homeworld}</p>}
+        {species && <p>Species: {species}</p>}
+        {population && <p>Population: {parseInt(population).toLocaleString()}</p>}
+        {terrain && <p>Terrain: {terrain}</p>}
+        {climate && <p>Climate: {climate}</p>}
+        {residents && <p>Residents: {residents}</p>}
+        {model &&<p>Model: {model}</p>}
+        {vehicleClass && <p>Class: {vehicleClass}</p>}
+        {numberOfPassengers &&<p>Capacity: {numberOfPassengers} Passengers</p>}
       </div>
     </section>
   )
