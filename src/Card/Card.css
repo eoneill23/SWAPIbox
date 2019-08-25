@@ -17,10 +17,11 @@ input {
   width: 300px;
   margin: 10px 25px 10px 25px; 
   padding: 10px;
-  color: ghostwhite;
+  /* color: ghostwhite; */
+  color: yellow;
   background-color: rgba(0, 10, 17, .8);
   border-radius: 10px;
-  box-shadow: 10px 10px 5px rgba(63, 195, 128, .5);
+  /* box-shadow: 10px 10px 5px rgba(63, 195, 128, .5); */
 }
 
 .Card-header {
@@ -59,6 +60,10 @@ input {
 }
 
 .favorited {
-  background-color: rgba(0, 10, 17, 1);
-  box-shadow: 10px 10px 5px rgba(151, 6,217, .5)
+  color: rgba(0, 10, 17, 1);
+  border: solid yellow .5px;
+  /* background-color: rgba(0, 10, 17, 1); */
+  background-color: yellow;
+  /* box-shadow: 10px 10px 5px rgba(151, 6,217, .5) */
+  box-shadow: 0px 0px 0px rgb(0,0,0);
 }
