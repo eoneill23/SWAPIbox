@@ -14,11 +14,11 @@ const Header = ({data}) => {
     <header className='Header'>
       <h1>SWAPIbox</h1>
       <div className='Header-links'>
-        <NavLink to='/' className='nav'><img className='small-header-img' src={nonChunkyHut} />Home</NavLink>
-        <NavLink to='/people' className='nav'><img src={bobaFett} />People</NavLink>
-        <NavLink to='/planets' className='nav'><img src={chunkyDeathStar} className='deathstar'/>Planets</NavLink>
-        <NavLink to='/vehicles' className='nav'><img src={xWing} />Vehicles</NavLink>
-        <NavLink to='/favorites' className='nav'><img className='small-header-img smaller' src={nonChunkyFavoriteLightsaber} />Favorites{favorites.length}</NavLink>
+        <NavLink exact to='/' className='nav' activeClassName='red active'><img className='small-header-img' src={nonChunkyHut} />Home</NavLink>
+        <NavLink to='/people' className='nav' activeClassName='yellow active'><img src={bobaFett} />People</NavLink>
+        <NavLink to='/planets' className='nav' activeClassName='green active'><img src={chunkyDeathStar} className='deathstar'/>Planets</NavLink>
+        <NavLink to='/vehicles' className='nav' activeClassName='blue active'><img src={xWing} />Vehicles</NavLink>
+        <NavLink to='/favorites' className='nav' activeClassName='purple active'><img className='small-header-img smaller' src={nonChunkyFavoriteLightsaber} />Favorites | {favorites.length}</NavLink>
       </div>
     </header>
   )

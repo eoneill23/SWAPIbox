@@ -8,6 +8,8 @@
 }
 
 .nav {
+  border: none;
+  color: gray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +19,11 @@
   text-decoration: none;
 }
 
+.active {
+  text-shadow: 0 0 7px yellow;
+  text-transform: uppercase;
+}
+
 .Header-links {
   background-color: #000A11;
   display: flex;
@@ -24,9 +31,36 @@
   justify-content: space-around;
 }
 
-.active {
-  background-color: gray;
-  /* border-bottom: 3px solid gray; */
+.red {
+  color: #FF221E;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.yellow {
+  color: yellow;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.green {
+  color: #44CF6C;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.blue {
+  border: none;
+  outline: 0;
+  color: #4789CE;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.purple{
+  color: #9706D9;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 h1 {
