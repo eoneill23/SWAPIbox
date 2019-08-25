@@ -1,3 +1,13 @@
+/* button {
+  height: 25px;
+  width: 75px;
+  border-radius: 10px;
+} */
+
+input {
+  height: 55px;
+}
+
 .Card {
   display: flex;
   flex-direction: column;
@@ -8,9 +18,9 @@
   margin: 10px 25px 10px 25px; 
   padding: 10px;
   color: ghostwhite;
-  background-color: #000A11;
+  background-color: rgba(0, 10, 17, .8);
   border-radius: 10px;
-  box-shadow: 10px 10px 5px rgba(63, 195, 128, .2);
+  box-shadow: 10px 10px 5px rgba(63, 195, 128, .5);
 }
 
 .Card-header {
@@ -20,20 +30,35 @@
   align-items: center;
   height: 100px;
   width: 100%;
-  border: 1px solid ghostwhite;
+}
+
+.Card-name {
+  font-size: 28px;
+  margin: 0px auto;
+}
+
+.favorite-button {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 35px 0px;
 }
 
 .stats {
   display: flex;
   flex-direction: column;
+  /* background-color: rgba(0, 10, 17, .1); */
 }
 
 .stats p {
-  margin: 0px 0px 25% 0px;
+  margin: 0px 0px 35px 0px;
 }
 
-button {
-  height: 25px;
-  width: 75px;
-  border-radius: 10px;
+.resident-list ul {
+  height: 50px;
+  overflow: scroll;
+}
+
+.favorited {
+  background-color: rgba(0, 10, 17, 1);
+  box-shadow: 10px 10px 5px rgba(151, 6,217, .5)
 }

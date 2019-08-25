@@ -13,24 +13,41 @@ const Card = ({ name, homeworld, species, population, terrain, climate, resident
   } 
   
   const saberSource = isFavorite === 'true' ? saber : hilt;
+  const favoriteStyle = isFavorite === 'true' ? 'Card favorited' : 'Card';
+  const populationReport = population === 'unknown' ? 'Unknown' : parseInt(population).toLocaleString();
+  let residentList = null;
+  let residentReport = null;
+
+
+  if (residents) {
+    residentList = residents.length === 0 ? null : residents.map(residentName => <li key={residentName}>{residentName}</li>)
+  }
+
+  if (residents) {
+    residentReport = residents.length === 0 ? <p>Unknown</p> : <ul className='resident-list'>{residentList}</ul>;
+  }
+
   return (
-    <section className='Card'>
+    <section className={favoriteStyle}>
       <header className='Card-header'>
-        <h2>{name}</h2>
-        <label htmlFor='favorite'>Favorite
+        <div className='Card-name'>
+          <h2>{name}</h2>
+        </div>
+        <div className='favorite-button'>
           <input type='image' id='hilt' name='favorite' cardname={name} cardtype={type} favorite={isFavorite} src={saberSource} onClick={handleClick}/>
-        </label>
+          <label htmlFor='favorite'>Favorite</label>
+        </div>
       </header>
       <div className='stats'>
-        {homeworld && <p>Homeworld: {homeworld}</p>}
-        {species && <p>Species: {species}</p>}
-        {population && <p>Population: {parseInt(population).toLocaleString()}</p>}
-        {terrain && <p>Terrain: {terrain}</p>}
-        {climate && <p>Climate: {climate}</p>}
-        {residents && <p>Residents: {residents}</p>}
-        {model &&<p>Model: {model}</p>}
-        {vehicleClass && <p>Class: {vehicleClass}</p>}
-        {numberOfPassengers &&<p>Capacity: {numberOfPassengers} Passengers</p>}
+        {homeworld && <p>HOMEWORLD: {homeworld}</p>}
+        {species && <p>SPECIES: {species}</p>}
+        {population && <p>POPULATION: {populationReport}</p>}
+        {terrain && <p>TERRAIN: {terrain}</p>}
+        {climate && <p>CLIMATE: {climate}</p>}
+        {residents && <><div>RESIDENTS :</div> <ul className='resident-list'>{residentReport}</ul></>}
+        {model &&<p>MODEL: {model}</p>}
+        {vehicleClass && <p>CLASS: {vehicleClass}</p>}
+        {numberOfPassengers &&<p>CAPACITY: {numberOfPassengers} Passengers</p>}
       </div>
     </section>
   )
