@@ -138,10 +138,10 @@ class App extends Component {
         {this.state.isLoading && <p>Hold your horses</p>}
         <Header data={this.state.favorites}/>
         <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
-        <Route path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard}/>} />
-        <Route path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard}/>} />
-        <Route path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard}/>} />
-        <Route path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard}/>} />
+        <Route exact path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard}/>} />
+        <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard}/>} />
+        <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard}/>} />
+        <Route exact path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard}/>} />
       </main>
     )
   }

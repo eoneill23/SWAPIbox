@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import './Cards.css';
 
@@ -15,6 +16,11 @@ const Cards = ({data, favoriteCard}) => {
     </div>
   )
 
+}
+
+Cards.propTypes = {
+  data: PropTypes.array,
+  favoriteCard: PropTypes.func
 }
 
 export default Cards;
