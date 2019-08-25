@@ -14,6 +14,7 @@
   align-items: center;
   width: 200px;
   margin: 0px 0px 15px 0px;
+  text-decoration: none;
 }
 
 .Header-links {
@@ -21,6 +22,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.active {
+  background-color: gray;
+  /* border-bottom: 3px solid gray; */
 }
 
 h1 {
@@ -35,4 +41,12 @@ h1 {
 img {
   height: 150px;
   width: 150px;
+}
+
+.small-header-img {
+    padding: 0px 0px 26px 0px;
+}
+
+.smaller {
+  padding: 23px 28px 34px 28px;
 }
