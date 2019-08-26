@@ -6,18 +6,18 @@ exports[`Cards should match the snapshot with all data passed in correctly 1`] =
 >
   <Card
     homeworld="Kamino"
-    id="David1566689316240"
+    id="David1566829833327"
     isFavorite="false"
-    key="David1566689316240"
+    key="David1566829833327"
     name="David"
     population={20}
     species="wookie"
   />
   <Card
     homeworld="Tatooine"
-    id="Eric1566689316240"
+    id="Eric1566829833327"
     isFavorite="false"
-    key="Eric1566689316240"
+    key="Eric1566829833327"
     name="Eric"
     population={42}
     species="human"
@@ -31,9 +31,9 @@ exports[`Cards should match the snapshot with all data passed in correctly 2`] =
 >
   <Card
     climate="temperate"
-    id="Tatooine1566689316245"
+    id="Tatooine1566829833331"
     isFavorite="false"
-    key="Tatooine1566689316245"
+    key="Tatooine1566829833331"
     name="Tatooine"
     population={200}
     residents={
@@ -46,9 +46,9 @@ exports[`Cards should match the snapshot with all data passed in correctly 2`] =
   />
   <Card
     climate="temperate"
-    id="Coruscant1566689316245"
+    id="Coruscant1566829833331"
     isFavorite="false"
-    key="Coruscant1566689316245"
+    key="Coruscant1566829833331"
     name="Coruscant"
     population={42}
     residents={
@@ -67,16 +67,16 @@ exports[`Cards should match the snapshot with all data passed in correctly 3`] =
   className="Cards"
 >
   <Card
-    id="Toyota Corolla1566689316246"
+    id="Toyota Corolla1566829833333"
     isFavorite="false"
-    key="Toyota Corolla1566689316246"
+    key="Toyota Corolla1566829833333"
     model="sedan"
     name="Toyota Corolla"
   />
   <Card
-    id="Sand Crawler1566689316246"
+    id="Sand Crawler1566829833333"
     isFavorite="false"
-    key="Sand Crawler1566689316246"
+    key="Sand Crawler1566829833333"
     model="Digger Crawler"
     name="Sand Crawler"
   />
@@ -89,26 +89,26 @@ exports[`Cards should match the snapshot with all data passed in correctly 4`] =
 >
   <Card
     homeworld="Kamino"
-    id="David1566689316247"
+    id="David1566829833334"
     isFavorite="true"
-    key="David1566689316247"
+    key="David1566829833334"
     name="David"
     population={20}
     species="wookie"
   />
   <Card
     homeworld="Tatooine"
-    id="Eric1566689316247"
+    id="Eric1566829833334"
     isFavorite="true"
-    key="Eric1566689316247"
+    key="Eric1566829833334"
     name="Eric"
     population={42}
     species="human"
   />
   <Card
-    id="Toyota Corolla1566689316247"
+    id="Toyota Corolla1566829833334"
     isFavorite="true"
-    key="Toyota Corolla1566689316247"
+    key="Toyota Corolla1566829833334"
     model="sedan"
     name="Toyota Corolla"
   />

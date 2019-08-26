@@ -1,23 +1,20 @@
 import React from 'react';
-import './Card.css'
+import './Card.css';
+import PropTypes from 'prop-types';
 import hilt from '../images/non-chunky-lightsaber-hilt.png'
 import saber from '../images/non-chunky-lightsaber.png'
 
-const Card = ({ name, homeworld, species, population, terrain, climate, residents, model, vehicleClass, numberOfPassengers, isFavorite, favoriteCard, type }) => {
+const Card = ({ data, favoriteCard, favoritesArray }) => {
+  const { name, homeworld, species, population, terrain, climate, residents, model, vehicleClass, numberOfPassengers, favorite, type } = data;
 
-  const handleClick = e => {
-    const cardname = e.target.getAttribute('cardname');
-    const cardtype = e.target.getAttribute('cardtype');
-    const favorite = e.target.getAttribute('favorite');
-    favoriteCard(cardname, cardtype, favorite);
-  } 
-  
-  const saberSource = isFavorite === 'true' ? saber : hilt;
-  const favoriteStyle = isFavorite === 'true' ? 'Card favorited' : 'Card';
+  const favoriteStyle = favoritesArray.map(favorite => favorite.name).includes(data.name) ? 'Card favorited' : 'Card';
+
+ 
+  const saberSource = favoritesArray.map(favorite => favorite.name).includes(data.name) ? saber : hilt;
+  // const favoriteStyle = favoritesArray.includes(data.name) ? 'Card favorited' : 'Card';
   const populationReport = population === 'unknown' ? 'Unknown' : parseInt(population).toLocaleString();
   let residentList = null;
   let residentReport = null;
-
 
   if (residents) {
     residentList = residents.length === 0 ? null : residents.map(residentName => <li key={residentName}>{residentName}</li>)
@@ -34,7 +31,16 @@ const Card = ({ name, homeworld, species, population, terrain, climate, resident
           <h2>{name}</h2>
         </div>
         <div className='favorite-button'>
-          <input type='image' id='hilt' name='favorite' cardname={name} cardtype={type} favorite={isFavorite} src={saberSource} onClick={handleClick}/>
+          <input 
+            type='image' 
+            alt='active/inactive lightsaber showing when card is favorited'
+            id='hilt' 
+            name='favorite' 
+            cardname={name} 
+            cardtype={type} 
+            favorite={favorite} 
+            src={saberSource} 
+            onClick={() => favoriteCard(data)} />
           <label htmlFor='favorite'>Favorite</label>
         </div>
       </header>
@@ -54,3 +60,19 @@ const Card = ({ name, homeworld, species, population, terrain, climate, resident
 }
 
 export default Card;
+
+Card.propTypes = {
+  name : PropTypes.string,
+  homeworld : PropTypes.string,
+  species : PropTypes.string,
+  population : PropTypes.number,
+  terrain : PropTypes.string,
+  climate : PropTypes.string,
+  residents : PropTypes.array,
+  model : PropTypes.string,
+  vehicleClass : PropTypes.string,
+  numberOfPassengers : PropTypes.string,
+  favorite : PropTypes.string,
+  type : PropTypes.string,
+  favoriteCard : PropTypes.func
+}

@@ -8,7 +8,24 @@ exports[`App should match the snapshot with all data passed in correctly 1`] = `
     Hold your horses
   </p>
   <Header
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "favorite": "true",
+          "homeworld": "Kamino",
+          "name": "David",
+          "population": 20,
+          "species": "wookie",
+        },
+        Object {
+          "favorite": "true",
+          "homeworld": "Kamino",
+          "name": "David",
+          "population": 20,
+          "species": "wookie",
+        },
+      ]
+    }
   />
   <Route
     exact={true}
@@ -16,18 +33,22 @@ exports[`App should match the snapshot with all data passed in correctly 1`] = `
     render={[Function]}
   />
   <Route
+    exact={true}
     path="/people"
     render={[Function]}
   />
   <Route
+    exact={true}
     path="/planets"
     render={[Function]}
   />
   <Route
+    exact={true}
     path="/vehicles"
     render={[Function]}
   />
   <Route
+    exact={true}
     path="/favorites"
     render={[Function]}
   />

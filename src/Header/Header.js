@@ -24,8 +24,9 @@ const Header = ({data}) => {
   )
 }
 
+
+export default Header;
+  
 Header.propTypes = {
   data: PropTypes.array
 }
-
-export default Header;

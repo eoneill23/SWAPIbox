@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Crawler.css'
 
 const Crawler = ({data}) => {
@@ -15,3 +16,7 @@ const Crawler = ({data}) => {
 }
 
 export default Crawler;
+
+Crawler.propTypes = {
+  data : PropTypes.object
+}

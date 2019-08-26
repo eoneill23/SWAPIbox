@@ -11,15 +11,19 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
     className="Header-links"
   >
     <NavLink
+      activeClassName="red active"
       className="nav"
+      exact={true}
       to="/"
     >
       <img
+        className="small-header-img"
         src="non-chunky-hut.svg"
       />
       Home
     </NavLink>
     <NavLink
+      activeClassName="yellow active"
       className="nav"
       to="/people"
     >
@@ -29,6 +33,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       People
     </NavLink>
     <NavLink
+      activeClassName="green active"
       className="nav"
       to="/planets"
     >
@@ -39,6 +44,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       Planets
     </NavLink>
     <NavLink
+      activeClassName="blue active"
       className="nav"
       to="/vehicles"
     >
@@ -48,13 +54,15 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       Vehicles
     </NavLink>
     <NavLink
+      activeClassName="purple active"
       className="nav"
       to="/favorites"
     >
       <img
+        className="small-header-img smaller"
         src="non-chunky-favorite-lightsaber.svg"
       />
-      Favorites
+      Favorites | 
       1
     </NavLink>
   </div>
