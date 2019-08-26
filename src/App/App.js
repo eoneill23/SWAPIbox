@@ -1,6 +1,6 @@
 import React, { Component }from 'react';
 import './App.css';
-import { Route, Navlink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import Crawler from '../Crawler/Crawler';
@@ -16,7 +16,10 @@ class App extends Component {
       planets: [],
       crawl: {},
       favorites: [],
-      isLoading: true
+      crawlIsLoading: true,
+      peopleIsLoading: true,
+      planetsIsLoading: true,
+      vehiclesIsLoading: true
     }
   }
 
@@ -26,19 +29,19 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.fetchPeople(data.results))
       .then(data => this.fetchSpecies(data))
-      .then(people => this.setState({ people: people}))
+      .then(people => this.setState({ people: people, peopleIsLoading: false}))
       .catch(error => console.log(error));
 
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
       .then(data => this.fetchResidents(data.results))
-      .then(planets => this.setState({ planets: planets}))
+      .then(planets => this.setState({ planets: planets, planetsIsLoading: false}))
       .catch(error => console.log(error));
 
     fetch('https://swapi.co/api/vehicles/')
       .then(response => response.json())
       .then(data => this.fetchVehicles(data.results))
-      .then(vehicles => this.setState({ vehicles: vehicles}))
+      .then(vehicles => this.setState({ vehicles: vehicles, vehiclesIsLoading: false}))
       .catch(error => console.log(error))
 
     this.fetchFilm();
@@ -54,7 +57,7 @@ class App extends Component {
     fetch(`https://swapi.co/api/films/${filmNumber}`)
       .then(response => response.json())
       .then(film => ({title: film.title, crawl: film.opening_crawl, release: film.release_date}))
-      .then(crawl => this.setState({ crawl: crawl, isLoading: false }))
+      .then(crawl => this.setState({ crawl: crawl, crawlIsLoading: false }))
       .catch(error => console.log(error))
   }
 
@@ -106,7 +109,6 @@ class App extends Component {
         residents: nameArray
       }
     });
-    console.log('planets', planetsArray[0].residents.length)
     return planetsArray
   };
 
@@ -149,13 +151,15 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-        {this.state.isLoading && <p>Hold your horses</p>}
         <Header data={this.state.favorites}/>
-        <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
-        <Route exact path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} />} />
-        <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
-        <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
-        <Route exact path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
+        <Route exact path='/' render={() => <Crawler data={this.state.crawl} />} />
+        <Route exact path='/people' render={() => <Cards data={this.state.people} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} />} 
+        />
+        <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} 
+        />
+        <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} 
+        />
+        <Route exact path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} type={'favorites'}/>} />
       </main>
     )
   }

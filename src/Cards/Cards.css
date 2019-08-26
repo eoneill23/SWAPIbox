@@ -8,3 +8,9 @@
   background: no-repeat center url(https://wallpaperplay.com/walls/full/b/e/4/124178.jpg);
   overflow: scroll;
 }
+
+.no-favorites {
+  color: yellow;
+  font-size: 2em;
+  margin-top: 150px;
+}
