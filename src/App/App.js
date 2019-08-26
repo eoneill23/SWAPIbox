@@ -15,7 +15,10 @@ class App extends Component {
       planets: [],
       crawl: {},
       favorites: [],
-      isLoading: true
+      crawlIsLoading: true,
+      peopleIsLoading: true,
+      planetsIsLoading: true,
+      vehiclesIsLoading: true
     }
   }
 
@@ -24,7 +27,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.fetchPeople(data.results))
       .then(data => this.fetchSpecies(data))
-      .then(people => this.setState({ people: people}))
+      .then(people => this.setState({ people: people, peopleIsLoading: false}))
       .catch(error => console.log(error));
       setTimeout(() => {
         console.log('state', this.state)
@@ -33,13 +36,13 @@ class App extends Component {
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
       .then(data => this.fetchResidents(data.results))
-      .then(planets => this.setState({ planets: planets}))
+      .then(planets => this.setState({ planets: planets, planetsIsLoading: false}))
       .catch(error => console.log(error));
 
     fetch('https://swapi.co/api/vehicles/')
       .then(response => response.json())
       .then(data => this.fetchVehicles(data.results))
-      .then(vehicles => this.setState({ vehicles: vehicles}))
+      .then(vehicles => this.setState({ vehicles: vehicles, vehiclesIsLoading: false}))
       .catch(error => console.log(error))
 
     this.fetchFilm();
@@ -55,7 +58,7 @@ class App extends Component {
     fetch(`https://swapi.co/api/films/${filmNumber}`)
       .then(response => response.json())
       .then(film => ({title: film.title, crawl: film.opening_crawl, release: film.release_date}))
-      .then(crawl => this.setState({ crawl: crawl, isLoading: false }))
+      .then(crawl => this.setState({ crawl: crawl, crawlIsLoading: false }))
       .catch(error => console.log(error))
   }
 
@@ -126,22 +129,6 @@ class App extends Component {
     });
   };
 
-  // favoriteCard = (name, type, favorite) => {
-  //   const foundCard = this.state[type].find(card => card.name === name);
-  //   foundCard.favorite = foundCard.favorite === 'false' ? 'true' : 'false';
-  //   if (foundCard.favorite === 'true' && !this.state.favorites.includes(foundCard)) {
-  //     this.setState({ favorites: [...this.state.favorites, foundCard] }, () => { console.log('localstorage experiment toggle on', this.state.favorites)});
-  //     this.setLocalStorage([...this.state.favorites, foundCard]);
-  //   } else {
-  //     const filteredFavorites = this.state.favorites.filter(card => card.favorite === 'true');
-  //     this.setLocalStorage(filteredFavorites);
-  //     this.setState({ favorites: filteredFavorites }, () => { console.log('localstorage experiment toggle off', this.state.favorites)});
-      
-  //   }
-  // }
-
-
-
   favoriteCard = (cardData) => {
     console.log('in favoriteCard', cardData)
     const favoriteNames = this.state.favorites.map(favorite => favorite.name)
@@ -156,8 +143,6 @@ class App extends Component {
     }
   }
 
-
-
   setLocalStorage = (favorites) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
@@ -165,12 +150,15 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-        {this.state.isLoading && <p>Hold your horses</p>}
         <Header data={this.state.favorites}/>
         <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
+        {this.state.crawlIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' /> }
         <Route exact path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} />} />
+        {this.state.peopleIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' />}
         <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
+        {this.state.planetsIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' />}
         <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
+        {this.state.vehiclesIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' />}
         <Route exact path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
       </main>
     )
