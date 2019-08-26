@@ -1,6 +1,6 @@
 import React, { Component }from 'react';
 import './App.css';
-import { Route, Navlink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import Crawler from '../Crawler/Crawler';
