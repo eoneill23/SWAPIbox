@@ -112,7 +112,6 @@ class App extends Component {
         residents: nameArray
       }
     });
-    console.log('planets', planetsArray[0].residents.length)
     return planetsArray
   };
 
@@ -151,14 +150,13 @@ class App extends Component {
     return (
       <main className='App'>
         <Header data={this.state.favorites}/>
-        <Route exact path='/' render ={ () => <Crawler data={this.state.crawl} /> } />
-        {this.state.crawlIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' alt='At-at walking loading screen'/> }
-        <Route exact path='/people' render={ () => <Cards data={this.state.people} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} />} />
-        {this.state.peopleIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' alt='At-at walking loading screen'/>}
-        <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
-        {this.state.planetsIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' alt='At-at walking loading screen'/>}
-        <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
-        {this.state.vehiclesIsLoading && <img className='loader' src='https://cdn.dribbble.com/users/24011/screenshots/2359124/open-uri20151118-3-1gxtjdn' alt='At-at walking loading screen'/>}
+        <Route exact path='/' render={() => <Crawler data={this.state.crawl} />} />
+        <Route exact path='/people' render={() => <Cards data={this.state.people} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites} />} 
+        />
+        <Route exact path='/planets' render={() => <Cards data={this.state.planets} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} 
+        />
+        <Route exact path='/vehicles' render={() => <Cards data={this.state.vehicles} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} 
+        />
         <Route exact path='/favorites' render={() => <Cards data={this.state.favorites} favoriteCard={this.favoriteCard} favoritesArray={this.state.favorites}/>} />
       </main>
     )
