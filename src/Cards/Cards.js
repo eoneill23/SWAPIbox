@@ -18,11 +18,11 @@ const Cards = ({data, favoriteCard, favoritesArray}) => {
 
 }
 
-
 export default Cards;
 
 
 Cards.propTypes = {
   data: PropTypes.array,
-  favoriteCard: PropTypes.func
+  favoriteCard: PropTypes.func,
+  favoritesArray: PropTypes.array
 }

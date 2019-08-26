@@ -5,13 +5,12 @@ import hilt from '../images/non-chunky-lightsaber-hilt.png'
 import saber from '../images/non-chunky-lightsaber.png'
 
 const Card = ({ data, favoriteCard, favoritesArray }) => {
-  const { name, homeworld, species, population, terrain, climate, residents, model, vehicleClass, numberOfPassengers, favorite, type } = data;
+  const { name, homeworld, species, population, terrain, climate, residents, model, vehicleClass, numberOfPassengers, type } = data;
 
   const favoriteStyle = favoritesArray.map(favorite => favorite.name).includes(data.name) ? 'Card favorited' : 'Card';
 
- 
   const saberSource = favoritesArray.map(favorite => favorite.name).includes(data.name) ? saber : hilt;
-  // const favoriteStyle = favoritesArray.includes(data.name) ? 'Card favorited' : 'Card';
+
   const populationReport = population === 'unknown' ? 'Unknown' : parseInt(population).toLocaleString();
   let residentList = null;
   let residentReport = null;
@@ -19,7 +18,6 @@ const Card = ({ data, favoriteCard, favoritesArray }) => {
   if (residents) {
     residentList = residents.length === 0 ? null : residents.map(residentName => <li key={residentName}>{residentName}</li>)
   }
-
   if (residents) {
     residentReport = residents.length === 0 ? <p>Unknown</p> : <ul className='resident-list'>{residentList}</ul>;
   }
@@ -38,7 +36,6 @@ const Card = ({ data, favoriteCard, favoritesArray }) => {
             name='favorite' 
             cardname={name} 
             cardtype={type} 
-            favorite={favorite} 
             src={saberSource} 
             onClick={() => favoriteCard(data)} />
           <label htmlFor='favorite'>Favorite</label>
@@ -62,17 +59,7 @@ const Card = ({ data, favoriteCard, favoritesArray }) => {
 export default Card;
 
 Card.propTypes = {
-  name : PropTypes.string,
-  homeworld : PropTypes.string,
-  species : PropTypes.string,
-  population : PropTypes.number,
-  terrain : PropTypes.string,
-  climate : PropTypes.string,
-  residents : PropTypes.array,
-  model : PropTypes.string,
-  vehicleClass : PropTypes.string,
-  numberOfPassengers : PropTypes.string,
-  favorite : PropTypes.string,
-  type : PropTypes.string,
-  favoriteCard : PropTypes.func
+  data : PropTypes.object,
+  favoriteCard : PropTypes.func,
+  favoritesArray : PropTypes.array
 }

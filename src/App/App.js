@@ -4,6 +4,7 @@ import { Route, Navlink } from 'react-router-dom';
 import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import Crawler from '../Crawler/Crawler';
+// import APIcalls from '../util/APIcalls';
 
 
 class App extends Component {
@@ -20,15 +21,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     fetch('https://swapi.co/api/people/')
       .then(response => response.json())
       .then(data => this.fetchPeople(data.results))
       .then(data => this.fetchSpecies(data))
       .then(people => this.setState({ people: people}))
       .catch(error => console.log(error));
-      setTimeout(() => {
-        console.log('state', this.state)
-      }, 3000);
 
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
@@ -46,7 +45,7 @@ class App extends Component {
 
     if (localStorage.getItem('favorites')) {
       const favorites = JSON.parse(localStorage.getItem('favorites'));
-      this.setState({ favorites }, () => {console.log('in the localstorage conditional', this.state.favorites)});
+      this.setState({ favorites });
     }
   }
 
@@ -64,7 +63,6 @@ class App extends Component {
       return fetch(person.homeworld)
         .then(response => response.json())
         .then(data => ({
-          favorite: 'false',
           type: 'people',
           homeworld: data.name,
           population: data.population,
@@ -100,7 +98,6 @@ class App extends Component {
         .catch(error => console.log(error))
       });
       return {
-        favorite: 'false',
         type: 'planets',
         name: planet.name,
         terrain: planet.terrain,
@@ -116,7 +113,6 @@ class App extends Component {
   fetchVehicles = (vehicles) => {
     return vehicles.map(vehicle => {
       return {
-        favorite: 'false',
         type: 'vehicles',
         name: vehicle.name,
         model: vehicle.model,
@@ -126,40 +122,28 @@ class App extends Component {
     });
   };
 
-  // favoriteCard = (name, type, favorite) => {
-  //   const foundCard = this.state[type].find(card => card.name === name);
-  //   foundCard.favorite = foundCard.favorite === 'false' ? 'true' : 'false';
-  //   if (foundCard.favorite === 'true' && !this.state.favorites.includes(foundCard)) {
-  //     this.setState({ favorites: [...this.state.favorites, foundCard] }, () => { console.log('localstorage experiment toggle on', this.state.favorites)});
-  //     this.setLocalStorage([...this.state.favorites, foundCard]);
-  //   } else {
-  //     const filteredFavorites = this.state.favorites.filter(card => card.favorite === 'true');
-  //     this.setLocalStorage(filteredFavorites);
-  //     this.setState({ favorites: filteredFavorites }, () => { console.log('localstorage experiment toggle off', this.state.favorites)});
-      
-  //   }
-  // }
-
-
-
   favoriteCard = (cardData) => {
-    console.log('in favoriteCard', cardData)
     const favoriteNames = this.state.favorites.map(favorite => favorite.name)
-
     if (!favoriteNames.includes(cardData.name)) {
-      this.setLocalStorage([...this.state.favorites, cardData]);
-      this.setState({favorites : [...this.state.favorites, cardData]}, () => {console.log(this.state.favorites)});
+      this.addToLocalStorage(cardData);
     } else {
-      const filteredFavorites = this.state.favorites.filter(favorite => favorite.name !== cardData.name);
-      this.setLocalStorage(filteredFavorites);
-      this.setState({ favorites: filteredFavorites }, () => { console.log(this.state.favorites) });
+      this.removeFromLocalStorage(cardData);
     }
   }
 
-
-
   setLocalStorage = (favorites) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+
+  addToLocalStorage = (cardData) => {
+    this.setLocalStorage([...this.state.favorites, cardData]);
+    this.setState({ favorites: [...this.state.favorites, cardData] });
+  }
+
+  removeFromLocalStorage = (cardData) => {
+    const filteredFavorites = this.state.favorites.filter(favorite => favorite.name !== cardData.name);
+    this.setLocalStorage(filteredFavorites);
+    this.setState({ favorites: filteredFavorites });
   }
 
   render() {

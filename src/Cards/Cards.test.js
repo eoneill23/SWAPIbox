@@ -8,22 +8,23 @@ describe('Cards', () => {
 
   beforeEach(() => {
     mockPeople = [
-      { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'false' },
-      { name: 'Eric', homeworld: 'Tatooine', species: 'human', population: 42, favorite: 'false' }
+      { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20},
+      { name: 'Eric', homeworld: 'Tatooine', species: 'human', population: 42}
     ];
     mockPlanets = [
-      { name: 'Tatooine', terrain: 'grasslands, mountains', population: 200, climate: 'temperate', residents: ['Travis', 'Robbie'], favorite: 'false' },
-      { name: 'Coruscant', terrain: 'desert', population: 42, climate: 'temperate', residents: ['Steve', 'Paul'], favorite: 'false' }
+      { name: 'Tatooine', terrain: 'grasslands, mountains', population: 200, climate: 'temperate', residents: ['Travis', 'Robbie']},
+      { name: 'Coruscant', terrain: 'desert', population: 42, climate: 'temperate', residents: ['Steve', 'Paul']}
     ]
     mockVehicles = [
-      { name: 'Toyota Corolla', model: 'sedan', class: 'wheeled', passengers: 4, favorite: 'false' },
-      { name: 'Sand Crawler', model: 'Digger Crawler', class: 'wheeled', passengers: 30, favorite: 'false' }
+      { name: 'Toyota Corolla', model: 'sedan', class: 'wheeled', passengers: 4},
+      { name: 'Sand Crawler', model: 'Digger Crawler', class: 'wheeled', passengers: 30}
     ]
     mockFavorites = [
-      { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'true' },
-      { name: 'Eric', homeworld: 'Tatooine', species: 'human', population: 42, favorite: 'true' },
-      { name: 'Toyota Corolla', model: 'sedan', class: 'wheeled', passengers: 4, favorite: 'true' }
+      { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20},
+      { name: 'Eric', homeworld: 'Tatooine', species: 'human', population: 42},
+      { name: 'Toyota Corolla', model: 'sedan', class: 'wheeled', passengers: 4}
     ];
+    global.Date.now = jest.spyOn(global.Date, 'now').mockImplementation(() => 12345);
     peopleWrapper = shallow(<Cards data={mockPeople} favoriteCard={favoriteCard}/>);
     planetsWrapper = shallow(<Cards data={mockPlanets} favoriteCard={favoriteCard}/>);
     vehiclesWrapper = shallow(<Cards data={mockVehicles} favoriteCard={favoriteCard}/>);

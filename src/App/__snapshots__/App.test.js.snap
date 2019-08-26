@@ -11,14 +11,6 @@ exports[`App should match the snapshot with all data passed in correctly 1`] = `
     data={
       Array [
         Object {
-          "favorite": "true",
-          "homeworld": "Kamino",
-          "name": "David",
-          "population": 20,
-          "species": "wookie",
-        },
-        Object {
-          "favorite": "true",
           "homeworld": "Kamino",
           "name": "David",
           "population": 20,
