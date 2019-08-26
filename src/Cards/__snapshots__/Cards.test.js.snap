@@ -5,22 +5,28 @@ exports[`Cards should match the snapshot with all data passed in correctly 1`] =
   className="Cards"
 >
   <Card
-    homeworld="Kamino"
-    id="David1566829833327"
-    isFavorite="false"
-    key="David1566829833327"
-    name="David"
-    population={20}
-    species="wookie"
+    data={
+      Object {
+        "homeworld": "Kamino",
+        "name": "David",
+        "population": 20,
+        "species": "wookie",
+      }
+    }
+    id="David12345"
+    key="David12345"
   />
   <Card
-    homeworld="Tatooine"
-    id="Eric1566829833327"
-    isFavorite="false"
-    key="Eric1566829833327"
-    name="Eric"
-    population={42}
-    species="human"
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "Eric",
+        "population": 42,
+        "species": "human",
+      }
+    }
+    id="Eric12345"
+    key="Eric12345"
   />
 </div>
 `;
@@ -30,34 +36,36 @@ exports[`Cards should match the snapshot with all data passed in correctly 2`] =
   className="Cards"
 >
   <Card
-    climate="temperate"
-    id="Tatooine1566829833331"
-    isFavorite="false"
-    key="Tatooine1566829833331"
-    name="Tatooine"
-    population={200}
-    residents={
-      Array [
-        "Travis",
-        "Robbie",
-      ]
+    data={
+      Object {
+        "climate": "temperate",
+        "name": "Tatooine",
+        "population": 200,
+        "residents": Array [
+          "Travis",
+          "Robbie",
+        ],
+        "terrain": "grasslands, mountains",
+      }
     }
-    terrain="grasslands, mountains"
+    id="Tatooine12345"
+    key="Tatooine12345"
   />
   <Card
-    climate="temperate"
-    id="Coruscant1566829833331"
-    isFavorite="false"
-    key="Coruscant1566829833331"
-    name="Coruscant"
-    population={42}
-    residents={
-      Array [
-        "Steve",
-        "Paul",
-      ]
+    data={
+      Object {
+        "climate": "temperate",
+        "name": "Coruscant",
+        "population": 42,
+        "residents": Array [
+          "Steve",
+          "Paul",
+        ],
+        "terrain": "desert",
+      }
     }
-    terrain="desert"
+    id="Coruscant12345"
+    key="Coruscant12345"
   />
 </div>
 `;
@@ -67,18 +75,28 @@ exports[`Cards should match the snapshot with all data passed in correctly 3`] =
   className="Cards"
 >
   <Card
-    id="Toyota Corolla1566829833333"
-    isFavorite="false"
-    key="Toyota Corolla1566829833333"
-    model="sedan"
-    name="Toyota Corolla"
+    data={
+      Object {
+        "class": "wheeled",
+        "model": "sedan",
+        "name": "Toyota Corolla",
+        "passengers": 4,
+      }
+    }
+    id="Toyota Corolla12345"
+    key="Toyota Corolla12345"
   />
   <Card
-    id="Sand Crawler1566829833333"
-    isFavorite="false"
-    key="Sand Crawler1566829833333"
-    model="Digger Crawler"
-    name="Sand Crawler"
+    data={
+      Object {
+        "class": "wheeled",
+        "model": "Digger Crawler",
+        "name": "Sand Crawler",
+        "passengers": 30,
+      }
+    }
+    id="Sand Crawler12345"
+    key="Sand Crawler12345"
   />
 </div>
 `;
@@ -88,29 +106,40 @@ exports[`Cards should match the snapshot with all data passed in correctly 4`] =
   className="Cards"
 >
   <Card
-    homeworld="Kamino"
-    id="David1566829833334"
-    isFavorite="true"
-    key="David1566829833334"
-    name="David"
-    population={20}
-    species="wookie"
+    data={
+      Object {
+        "homeworld": "Kamino",
+        "name": "David",
+        "population": 20,
+        "species": "wookie",
+      }
+    }
+    id="David12345"
+    key="David12345"
   />
   <Card
-    homeworld="Tatooine"
-    id="Eric1566829833334"
-    isFavorite="true"
-    key="Eric1566829833334"
-    name="Eric"
-    population={42}
-    species="human"
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "Eric",
+        "population": 42,
+        "species": "human",
+      }
+    }
+    id="Eric12345"
+    key="Eric12345"
   />
   <Card
-    id="Toyota Corolla1566829833334"
-    isFavorite="true"
-    key="Toyota Corolla1566829833334"
-    model="sedan"
-    name="Toyota Corolla"
+    data={
+      Object {
+        "class": "wheeled",
+        "model": "sedan",
+        "name": "Toyota Corolla",
+        "passengers": 4,
+      }
+    }
+    id="Toyota Corolla12345"
+    key="Toyota Corolla12345"
   />
 </div>
 `;

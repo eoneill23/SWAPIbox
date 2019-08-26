@@ -17,12 +17,12 @@ describe('App', () => {
   });
 
   it('should update state to show favorited cards when favoriteCard is invoked', () => {
-    const mockPerson = { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'false' };
+    const mockPerson = { name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20};
 
-    const expected = [{ name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20, favorite: 'true' }];
+    const expected = [{ name: 'David', homeworld: 'Kamino', species: 'wookie', population: 20}];
 
     wrapper.setState({ people: [mockPerson] });
-    wrapper.instance().favoriteCard('David', 'people', 'true');
+    wrapper.instance().favoriteCard(mockPerson);
 
     expect(wrapper.state('people')).toEqual(expected);
     expect(wrapper.state('favorites')).toEqual(expected);

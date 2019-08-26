@@ -4,21 +4,10 @@ exports[`App should match the snapshot with all data passed in correctly 1`] = `
 <main
   className="App"
 >
-  <p>
-    Hold your horses
-  </p>
   <Header
     data={
       Array [
         Object {
-          "favorite": "true",
-          "homeworld": "Kamino",
-          "name": "David",
-          "population": 20,
-          "species": "wookie",
-        },
-        Object {
-          "favorite": "true",
           "homeworld": "Kamino",
           "name": "David",
           "population": 20,

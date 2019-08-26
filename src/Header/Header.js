@@ -15,11 +15,11 @@ const Header = ({data}) => {
     <header className='Header'>
       <h1>SWAPIbox</h1>
       <div className='Header-links'>
-        <NavLink exact to='/' className='nav' activeClassName='red active'><img className='small-header-img' src={nonChunkyHut} alt='SVG of Lars family homestead on Tatooine'/>Home</NavLink>
-        <NavLink to='/people' className='nav' activeClassName='yellow active'><img src={bobaFett} alt='A yellow SVG of Boba Fetts helmet'/>People</NavLink>
-        <NavLink to='/planets' className='nav' activeClassName='green active'><img src={chunkyDeathStar} className='deathstar' alt='Green SVG of the death star'/>Planets</NavLink>
-        <NavLink to='/vehicles' className='nav' activeClassName='blue active'><img src={xWing} alt='Blue SVG of an x-wing fighter'/>Vehicles</NavLink>
-        <NavLink to='/favorites' className='nav' activeClassName='purple active'><img className='small-header-img smaller' src={nonChunkyFavoriteLightsaber} alt='Purple lightsaber'/>Favorites | {favorites.length}</NavLink>
+        <NavLink exact to='/' className='nav' activeClassName='red active'><img className='small-header-img' alt='hut indicating home page' src={nonChunkyHut} />Home</NavLink>
+        <NavLink to='/people' className='nav' activeClassName='yellow active'><img src={bobaFett} alt='Boba Fett helmet indicating people page'/>People</NavLink>
+        <NavLink to='/planets' className='nav' activeClassName='green active'><img src={chunkyDeathStar} alt='Deathstar indicating planet page' className='deathstar'/>Planets</NavLink>
+        <NavLink to='/vehicles' className='nav' activeClassName='blue active'><img src={xWing} alt='Xwing indicating vehicle page' />Vehicles</NavLink>
+        <NavLink to='/favorites' className='nav' activeClassName='purple active'><img className='small-header-img smaller' src={nonChunkyFavoriteLightsaber} alt='light saber indicating favorite page' />Favorites | {favorites.length}</NavLink>
       </div>
     </header>
   )

@@ -17,6 +17,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       to="/"
     >
       <img
+        alt="hut indicating home page"
         className="small-header-img"
         src="non-chunky-hut.svg"
       />
@@ -28,6 +29,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       to="/people"
     >
       <img
+        alt="Boba Fett helmet indicating people page"
         src="boba-fett.svg"
       />
       People
@@ -38,6 +40,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       to="/planets"
     >
       <img
+        alt="Deathstar indicating planet page"
         className="deathstar"
         src="chunky-death-star.svg"
       />
@@ -49,6 +52,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       to="/vehicles"
     >
       <img
+        alt="Xwing indicating vehicle page"
         src="x-wing.svg"
       />
       Vehicles
@@ -59,6 +63,7 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
       to="/favorites"
     >
       <img
+        alt="light saber indicating favorite page"
         className="small-header-img smaller"
         src="non-chunky-favorite-lightsaber.svg"
       />

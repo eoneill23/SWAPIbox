@@ -1,70 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should match the snapshot if the card is favorited 1`] = `
-<section
-  className="Card favorited"
->
-  <header
-    className="Card-header"
-  >
-    <div
-      className="Card-name"
-    >
-      <h2>
-        Eric
-      </h2>
-    </div>
-    <div
-      className="favorite-button"
-    >
-      <input
-        alt="active/inactive lightsaber showing when card is favorited"
-        cardname="Eric"
-        cardtype="people"
-        favorite="true"
-        id="hilt"
-        name="favorite"
-        onClick={[Function]}
-        src="non-chunky-lightsaber.png"
-        type="image"
-      />
-      <label
-        htmlFor="favorite"
-      >
-        Favorite
-      </label>
-    </div>
-  </header>
-  <div
-    className="stats"
-  >
-    <p>
-      HOMEWORLD: 
-      Earth
-    </p>
-    <p>
-      SPECIES: 
-      Human
-    </p>
-    <p>
-      POPULATION: 
-      10
-    </p>
-    <div>
-      RESIDENTS :
-    </div>
-     
-    <ul
-      className="resident-list"
-    >
-      <p>
-        Unknown
-      </p>
-    </ul>
-  </div>
-</section>
-`;
-
 exports[`Card should match the snapshot with all data passed in correctly 1`] = `
 <section
   className="Card"
@@ -86,7 +21,6 @@ exports[`Card should match the snapshot with all data passed in correctly 1`] = 
         alt="active/inactive lightsaber showing when card is favorited"
         cardname="Eric"
         cardtype="people"
-        favorite="false"
         id="hilt"
         name="favorite"
         onClick={[Function]}
@@ -115,6 +49,14 @@ exports[`Card should match the snapshot with all data passed in correctly 1`] = 
       POPULATION: 
       10
     </p>
+    <p>
+      TERRAIN: 
+      rocky
+    </p>
+    <p>
+      CLIMATE: 
+      temperate
+    </p>
     <div>
       RESIDENTS :
     </div>
@@ -122,10 +64,39 @@ exports[`Card should match the snapshot with all data passed in correctly 1`] = 
     <ul
       className="resident-list"
     >
-      <p>
-        Unknown
-      </p>
+      <ul
+        className="resident-list"
+      >
+        <li
+          key="Eric"
+        >
+          Eric
+        </li>
+        <li
+          key="David"
+        >
+          David
+        </li>
+        <li
+          key="Chris"
+        >
+          Chris
+        </li>
+      </ul>
     </ul>
+    <p>
+      MODEL: 
+      jalopy
+    </p>
+    <p>
+      CLASS: 
+      jalopy
+    </p>
+    <p>
+      CAPACITY: 
+      4
+       Passengers
+    </p>
   </div>
 </section>
 `;
