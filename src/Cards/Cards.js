@@ -21,7 +21,6 @@ const Cards = ({data, favoriteCard, favoritesArray, type}) => {
 
 export default Cards;
 
-
 Cards.propTypes = {
   data: PropTypes.array,
   favoriteCard: PropTypes.func,

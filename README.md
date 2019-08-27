@@ -12,7 +12,11 @@ The goal of the project is to fetch (sometimes nested) data -- a film, people, p
 The project also serves as an introduction to React Router to make it dynamic as well as propTypes to ensure each component is receiving the correct type of props.
 
 ##Images
-
+![Crawler screenshot](./src/images/crawlerScreenshot.png)
+![People screenshot](./src/images/peopleScreenshot.png)
+![Planets screenshot](./src/images/planetsScreenshot.png)
+![Vehicles screenshot](./src/images/vehiclesScreenshot.png)
+![Favorites screenshot](./src/images/favoritesScreenshot.png)
 
 ##Built with
 * `create-react-app`

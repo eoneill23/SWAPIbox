@@ -73,6 +73,9 @@ export const fetchPeople = () => {
     .then(response => response.json())
     .then(data => peopleFetchHelper(data.results))
     .then(data => speciesFetchHelper(data))
+    .catch(error => {
+      throw Error(error.message)
+    })
 }
 
 export const fetchPlanets = () => {
