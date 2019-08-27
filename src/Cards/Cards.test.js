@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Cards from './Cards'
-import Card from '../Card/Card.js'
 
 describe('Cards', () => {
   let peopleWrapper, planetsWrapper, vehiclesWrapper, favoritesWrapper, mockPeople, mockPlanets, mockVehicles, mockFavorites, favoriteCard;
