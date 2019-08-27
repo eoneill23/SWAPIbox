@@ -31,7 +31,7 @@ describe('fetchPeople', () => {
   });
 
   it('should return an error (SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
       });
@@ -41,7 +41,7 @@ describe('fetchPeople', () => {
   });
 
   it.only('should throw an error if the Promise rejects(SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
       return Promise.reject({
         message: 'Whoops! Looks like there was an issue.'
       });
