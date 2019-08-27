@@ -31,7 +31,9 @@ class App extends Component {
     //   .then(data => this.fetchSpecies(data))
     fetchPeople()
       .then(people => this.setState({ people: people, peopleIsLoading: false}))
-      .catch(error => console.log(error));
+      .catch(error => {
+        throw Error(error.message)
+      });
 
     // fetch('https://swapi.co/api/planets/')
     //   .then(response => response.json())

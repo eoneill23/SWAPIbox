@@ -1,7 +1,12 @@
 const peopleFetchHelper = (people) => {
   const promises = people.map(person => {
     return fetch(person.homeworld)
-      .then(response => response.json())
+      .then(response => {
+        if(!response.ok) {
+          throw Error ('There was an error fetching the people.')
+        }
+        return response.json()
+      })
       .then(data => ({
         type: 'people',
         homeworld: data.name,
@@ -9,7 +14,9 @@ const peopleFetchHelper = (people) => {
         name: person.name,
         species: person.species
       }))
-      .catch(error => console.log(error));
+      .catch(error => {
+        throw Error(error.message)
+      });
   });
   return Promise.all(promises);
 }
