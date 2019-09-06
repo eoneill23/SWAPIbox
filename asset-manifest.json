@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.7461dd89.chunk.css",
-    "main.js": "/static/js/main.e3d96457.chunk.js",
-    "main.js.map": "/static/js/main.e3d96457.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.732d82c0.js",
-    "runtime~main.js.map": "/static/js/runtime~main.732d82c0.js.map",
-    "static/js/2.504d9f28.chunk.js": "/static/js/2.504d9f28.chunk.js",
-    "static/js/2.504d9f28.chunk.js.map": "/static/js/2.504d9f28.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.dbca3a6f966eef7eb343c7bdcc3d9ef4.js": "/precache-manifest.dbca3a6f966eef7eb343c7bdcc3d9ef4.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.7461dd89.chunk.css.map": "/static/css/main.7461dd89.chunk.css.map",
-    "static/media/boba-fett.svg": "/static/media/boba-fett.37c2957e.svg",
-    "static/media/chunky-death-star.svg": "/static/media/chunky-death-star.4cbf6d22.svg",
-    "static/media/non-chunky-favorite-lightsaber.svg": "/static/media/non-chunky-favorite-lightsaber.8ed68362.svg",
-    "static/media/non-chunky-hut.svg": "/static/media/non-chunky-hut.e8780b99.svg",
-    "static/media/x-wing.svg": "/static/media/x-wing.25badfe2.svg"
+    "main.css": "/SWAPIbox/static/css/main.7461dd89.chunk.css",
+    "main.js": "/SWAPIbox/static/js/main.b9fdcb2f.chunk.js",
+    "main.js.map": "/SWAPIbox/static/js/main.b9fdcb2f.chunk.js.map",
+    "runtime~main.js": "/SWAPIbox/static/js/runtime~main.ba8de343.js",
+    "runtime~main.js.map": "/SWAPIbox/static/js/runtime~main.ba8de343.js.map",
+    "static/js/2.504d9f28.chunk.js": "/SWAPIbox/static/js/2.504d9f28.chunk.js",
+    "static/js/2.504d9f28.chunk.js.map": "/SWAPIbox/static/js/2.504d9f28.chunk.js.map",
+    "index.html": "/SWAPIbox/index.html",
+    "precache-manifest.cdc08fc65057bcd064ec813a54b63d0c.js": "/SWAPIbox/precache-manifest.cdc08fc65057bcd064ec813a54b63d0c.js",
+    "service-worker.js": "/SWAPIbox/service-worker.js",
+    "static/css/main.7461dd89.chunk.css.map": "/SWAPIbox/static/css/main.7461dd89.chunk.css.map",
+    "static/media/boba-fett.svg": "/SWAPIbox/static/media/boba-fett.37c2957e.svg",
+    "static/media/chunky-death-star.svg": "/SWAPIbox/static/media/chunky-death-star.4cbf6d22.svg",
+    "static/media/non-chunky-favorite-lightsaber.svg": "/SWAPIbox/static/media/non-chunky-favorite-lightsaber.8ed68362.svg",
+    "static/media/non-chunky-hut.svg": "/SWAPIbox/static/media/non-chunky-hut.e8780b99.svg",
+    "static/media/x-wing.svg": "/SWAPIbox/static/media/x-wing.25badfe2.svg"
   }
 }
